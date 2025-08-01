@@ -1,0 +1,24 @@
+Automatic Washing Machine Controller FSM
+
+Problem Statement:
+    Design an FSM to simulate the working of a semi-automatic washing machine with the following operations:
+        Fill → Wash → Rinse → Spin → Stop
+
+        Each stage takes a fixed number of cycles
+
+        Machine should respond to start, pause, and reset signals.
+
+        Inputs:
+            clk, reset, start, pause
+
+        Outputs:
+            stage[2:0] → Indicates current stage
+            done → High when complete
+            
+        States:
+            IDLE
+            FILL
+            WASH
+            RINSE
+            SPIN
+            DONE
