@@ -57,5 +57,4 @@ module AWMC(input clk,
             end 
         end
     end
-
 endmodule
