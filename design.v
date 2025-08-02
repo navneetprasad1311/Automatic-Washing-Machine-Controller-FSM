@@ -5,8 +5,9 @@ module AWMC(input clk,
             output reg [2:0] stage,
             output reg done);
 
+    parameter TIMER = 2'd3;
+
     reg [2:0] prev_state;
-    reg [1:0] timer = 2'b11;
     reg [1:0] count;
     reg running;
     reg unpaused;
@@ -36,9 +37,9 @@ module AWMC(input clk,
                 unpaused <= 1'b1;
                 if(control) begin
                     stage <= prev_state;
-                    control = 1'b0;
+                    control <= 1'b0;
                 end
-                if(count < timer) begin
+                if(count < TIMER) begin
                     count <= count + 1;
                 end
                 else begin
@@ -46,12 +47,12 @@ module AWMC(input clk,
                         done <= 1'b1;
                         running <= 1'b0;
                         stage <= 3'b111;
-                        count = 2'b00;
+                        count <= 2'b00;
                     end
                     else begin
                         stage <= stage + 1;
                         done <= 0;
-                        count = 2'b00;
+                        count <= 2'b00;
                     end
                 end
             end 
