@@ -1,4 +1,4 @@
-`include "top_modulev2.v"
+`include "design.v"
 
 module AWMC_tb();
     reg clk, reset, start, pause;

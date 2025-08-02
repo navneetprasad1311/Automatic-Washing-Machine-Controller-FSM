@@ -5,13 +5,11 @@ module AWMC(input clk,
             output reg [2:0] stage,
             output reg done);
 
-
     reg [2:0] prev_state;
     reg [1:0] timer = 2'b11;
     reg [1:0] count;
     reg running;
     reg unpaused;
-    reg [2:0] state;
     reg control;
 
     always @(posedge clk or posedge reset) begin
@@ -20,6 +18,7 @@ module AWMC(input clk,
             prev_state <= 3'b111;
             running <= 1'b0;
             unpaused <= 1'b0;
+            control <= 1'b0;
             count <= 2'b00;
             done <= 1'b0;
         end
@@ -43,7 +42,7 @@ module AWMC(input clk,
                     count <= count + 1;
                 end
                 else begin
-                    if (stage == 3'b101) begin
+                    if (stage == 3'b100) begin
                         done <= 1'b1;
                         running <= 1'b0;
                         stage <= 3'b111;
@@ -57,9 +56,6 @@ module AWMC(input clk,
                 end
             end 
         end
-
     end
 
-
 endmodule
-
