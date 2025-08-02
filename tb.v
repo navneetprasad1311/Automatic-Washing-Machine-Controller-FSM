@@ -52,8 +52,7 @@ module AWMC_tb();
         #200
         reset = 1'b1;
         #205
-        reset = 1'b0;
-        
+        reset = 1'b0;  
 
         #300 $finish;
 
