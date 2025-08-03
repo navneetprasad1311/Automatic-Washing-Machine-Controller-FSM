@@ -11,7 +11,6 @@ module AWMC(input clk,
     reg [1:0] count;
     reg running;
     reg paused;
-    reg control;
 
     always @(posedge clk or posedge reset) begin
         if(reset) begin
