@@ -16,9 +16,9 @@ Problem Statement:
             done → High when complete
             
         States:
-            IDLE
-            FILL
-            WASH
-            RINSE
-            SPIN
-            DONE
+            IDLE (111)
+            FILL (000)
+            WASH (001)
+            RINSE (010)
+            SPIN (011)
+            STOP (100)
