@@ -47,7 +47,7 @@ module AWMC(input clk,
                     end
                     else begin
                         stage <= stage + 1;
-                        done <= 0;
+                        done <= 1'b0;
                         count <= 2'b00;
                     end
                 end
