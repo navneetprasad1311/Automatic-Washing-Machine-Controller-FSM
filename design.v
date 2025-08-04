@@ -3,23 +3,22 @@ module AWMC(input clk,
                   start,
                   pause,
             output reg [2:0] stage,
-            output reg done;
-            output input_valve;
-            output output_drain);
+            output reg done);
 
-    parameter IDLE  = 3'b111;
-              FILL  = 3'b000;
-              WASH  = 3'b001;
-              RINSE = 3'b010;
-              SPIN  = 3'b011;
-              STOP  = 3'b100; 
-
-    parameter TIMER = 4'd10,
+    parameter IDLE  = 3'b111,
+              FILL  = 3'b000,
+              WASH  = 3'b001,
+              RINSE = 3'b010,
+              SPIN  = 3'b011,
+              STOP  = 3'b100,
+              TIMER = 4'd10,
               VALVE_DURATION = 2'd2;
 
 
     reg [2:0] prev_state;
     reg [3:0] count;
+    reg input_valve;
+    reg output_drain;
     reg running;
     reg paused;
 
