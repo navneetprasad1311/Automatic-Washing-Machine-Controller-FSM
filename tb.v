@@ -37,13 +37,13 @@ module AWMC_tb();
         #105
         pause = 1'b0;
         #110
-        start = 1'b0;
+        start = 1'b1;
         #120 
         start = 1'b0;
         #150
         reset = 1'b0;
         #155
-        start = 1'b0;
+        start = 1'b1;
         lid = 1'b1;
         #160
         start = 1'b0;

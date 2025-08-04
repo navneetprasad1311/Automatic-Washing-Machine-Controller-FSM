@@ -22,7 +22,7 @@ module AWMC(input clk,
     reg [3:0] count;
     reg running;
     reg paused;
-    reg times;
+    reg times = 1'b0;
     reg lidcond;
     reg pauser;
 
