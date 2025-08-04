@@ -14,7 +14,8 @@ module AWMC(input clk,
               SPIN  = 3'b011;
               STOP  = 3'b100; 
 
-    parameter TIMER = 4'd10;
+    parameter TIMER = 4'd10,
+              VALVE_DURATION = 2'd2;
 
 
     reg [2:0] prev_state;
@@ -54,7 +55,7 @@ module AWMC(input clk,
                           output_drain <= 1'b0;
                     end
                     WASH: begin
-                        if(count < 2'd2)begin
+                        if(count < VALVE_DURATION)begin
                             input_valve <= 1'b1;
                             output_drain <= 1'b0;
                         end
@@ -74,7 +75,7 @@ module AWMC(input clk,
                             endcase
                     end
                     SPIN: begin
-                        if(count < 2'd2)begin
+                        if(count < VALVE_DURATION)begin
                             input_valve <= 1'b0;
                             output_drain <= 1'b1;
                         end
