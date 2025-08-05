@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Mon Aug  4 10:12:02 2025
+[*] Tue Aug  5 05:50:31 2025
 [*]
 [dumpfile] "/home/navneet/Documents/Github/Automatic-Washing-Machine-Controller-FSM/tb.vcd"
-[dumpfile_mtime] "Mon Aug  4 10:10:55 2025"
-[dumpfile_size] 8130
+[dumpfile_mtime] "Tue Aug  5 04:54:16 2025"
+[dumpfile_size] 8517
 [savefile] "/home/navneet/Documents/Github/Automatic-Washing-Machine-Controller-FSM/simulation.gtkw"
 [timestart] 0
 [size] 1920 1012
-[pos] -51 -51
-*-8.779069 665 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -151 -151
+*-6.820913 86 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 217
 [signals_width] 110
 [sst_expanded] 1
@@ -17,8 +17,8 @@
 @28
 AWMC_tb.clk
 AWMC_tb.start
-AWMC_tb.reset
 AWMC_tb.pause
+AWMC_tb.reset
 AWMC_tb.lid
 AWMC_tb.stage[2:0]
 @29

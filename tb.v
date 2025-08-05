@@ -70,7 +70,7 @@ module AWMC_tb();
         #360
         lid = 1'b0;
 
-        #400 $finish;
+        #500 $finish;
 
     end
 

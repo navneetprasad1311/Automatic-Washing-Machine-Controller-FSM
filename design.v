@@ -18,17 +18,15 @@ module AWMC(input clk,
               VALVE_DURATION = 2'd2;
 
 
-    reg [2:0] prev_state;
-    reg [3:0] count;
-    reg running;
-    reg paused;
+    reg [2:0] prev_state = IDLE;
+    reg [3:0] count = 4'd0;
+    reg running = 1'b0;
+    reg paused = 1'b0;
     reg times = 1'b0;
-    reg lidcond;
-    reg pauser;
+    reg lidcond = 1'b0;
+    reg pauser = 1'b0;
 
     always @(posedge clk or posedge reset) begin
-        if(done & !lid)
-            stage <= IDLE;
         if(reset) begin
             count <= 2'b00;
             case (stage)
@@ -82,6 +80,7 @@ module AWMC(input clk,
             stage <= IDLE;
             prev_state <= IDLE;
             running <= 1'b0;
+            lidcond <= 1'b0;
             paused <= 1'b0;
             done <= 1'b0; 
         end
@@ -96,12 +95,8 @@ module AWMC(input clk,
                 output_drain <= 1'b0;
             end
             else if(pauser) begin
-                running <= 1'b0;
                 if(stage != IDLE) 
                     prev_state <= stage;
-                stage <= IDLE;
-                input_valve <= 1'b0;
-                output_drain <= 1'b0;
                 if(prev_state == FILL && lid) begin
                     lidcond <= 1'b1;
                     pauser <= 1'b0;
@@ -111,89 +106,110 @@ module AWMC(input clk,
                     lidcond <= 1'b1;
                     pauser <= 1'b0;
                 end
+                running <= 1'b0;
+                stage <= IDLE;
+                input_valve <= 1'b0;
+                output_drain <= 1'b0;
             end
 
-            else if(start || ((running || paused || lidcond)) && !done) begin
+            else if(start || ((running || paused || lidcond) && !done)) begin
                 running <= 1'b1;
-                if(paused || lidcond) begin
-                    stage <= prev_state;
-                    paused <= 1'b0;
-                    lidcond <= 1'b0;
+                done <= 1'b0;
+                if(count < TIMER) begin
+                    count <= count + 1;
                 end
 
                 case (stage)
+                    IDLE : begin
+                        input_valve <= 1'b0;
+                        output_drain <= 1'b0;
+                        if(start && (!paused || !lidcond) && lid) begin
+                            stage <= FILL;
+                        end
+                        if(paused || lidcond) begin
+                            stage <= prev_state;
+                            paused <= 1'b0;
+                            lidcond <= 1'b0;
+                        end 
+                    end
                     FILL: begin
                         input_valve <= 1'b0;
                         output_drain <= 1'b0;
                         if(lid && !times)
                             pauser <= 1'b1;
+                        else if(!pauser && !lid) begin
+                            if (count == TIMER) begin
+                                stage <= WASH;
+                                count <= 4'd0;
+                            end
+                        end
                     end
                     WASH: begin
                         if(lid) begin
                             pauser <= 1'b1;
                         end
-                        else begin
-                            output_drain <= 1'b0;
-                            if(count < VALVE_DURATION)
-                                input_valve <= 1'b1;
-                            else
-                                input_valve <= 1'b0;  
-                        end     
+                        else if(!pauser) begin
+                            if (count == TIMER) begin
+                                stage <= RINSE;
+                                count <= 4'd0;
+                            end
+                            else begin
+                                output_drain <= 1'b0;
+                                if(count < VALVE_DURATION)
+                                    input_valve <= 1'b1;
+                                else
+                                    input_valve <= 1'b0;  
+                            end 
+                        end    
                     end
                     RINSE: begin
                         if(lid) begin
                             pauser <= 1'b1;
                         end
-                        else begin
-                            case (count) 
-                                4'd0: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
-                                4'd2: begin input_valve <= 1'b1 ; output_drain <= 1'b0; end
-                                4'd4: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
-                                4'd6: begin input_valve <= 1'b1 ; output_drain <= 1'b0; end
-                                4'd8: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
-                                4'd10:begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
-                            endcase
+                        else if(!pauser) begin
+                            if (count == TIMER) begin
+                                stage <= SPIN;
+                                count <= 4'd0;
+                            end
+                            else begin
+                                case (count) 
+                                    4'd0: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
+                                    4'd2: begin input_valve <= 1'b1 ; output_drain <= 1'b0; end
+                                    4'd4: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
+                                    4'd6: begin input_valve <= 1'b1 ; output_drain <= 1'b0; end
+                                    4'd8: begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
+                                    4'd10:begin input_valve <= 1'b0 ; output_drain <= 1'b1; end
+                                endcase
+                            end
                         end
                     end
                     SPIN: begin
                         if(lid) begin
                             pauser <= 1'b1;
                         end
-                        else begin
-                            input_valve <= 1'b0;
-                            if(count < VALVE_DURATION)
-                                output_drain <= 1'b1;
-                            else
-                                output_drain <= 1'b0;
+                        else if(!pauser) begin
+                            if (count == TIMER) begin
+                                stage <= STOP;
+
+                                count <= 4'd0;
+                            end
+                            else begin
+                                input_valve <= 1'b0;
+                                if(count < VALVE_DURATION)
+                                    output_drain <= 1'b1;
+                                else
+                                    output_drain <= 1'b0;
+                            end
                         end
                     end
                     STOP : begin
                         input_valve <= 1'b0;
                         output_drain <= 1'b0;
-                    end
-                endcase                
-                if(count < TIMER) begin
-                    count <= count + 1;
-                end
-                else begin
-                    if (stage == STOP) begin
                         done <= 1'b1;
                         running <= 1'b0;
                         stage <= IDLE;
-                        count <= 2'b00;
                     end
-                    else if(stage == FILL) begin
-                        if(!lid) begin
-                            stage <= stage + 1;
-                            count <= 2'b00;
-                        end
-                    end
-                    else begin
-                        stage <= stage + 1;
-                        done <= 1'b0;
-                        count <= 2'b00;
-                    end
-                end
+                endcase
             end 
         end
     end
