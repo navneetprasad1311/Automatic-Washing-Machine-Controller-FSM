@@ -76,7 +76,8 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ## 🧪 Simulation Demo
 
-🎥 **Demo Video**:  WhatsApp Video 2025-08-08 at 14.28.04_6da2f1c3.mp4
+🎥 **Demo Video**: 
+
 📸 **Waveform Screenshot**: ![Image](https://github.com/user-attachments/assets/7f16bc30-de79-435b-8dce-28846760bcf9)
 
 ---
