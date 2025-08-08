@@ -37,7 +37,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 | `reset` | 1-bit | Asynchronous reset |
 | `start` | 1-bit | Start washing |
 | `pause` | 1-bit | Pause washing |
-| `lid` | 1-bit | Lid status (1 = closed) |
+| `lid` | 1-bit | Lid status (1 = open) |
 
 ---
 
@@ -83,7 +83,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ## 🔍 Reports
 
-### ⚙️ Schematic Desin 
+### ⚙️ Schematic Design 
 
 ![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
 
@@ -110,3 +110,5 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 ---
 
 ## 📂 File Structure
+
+![Image](https://github.com/user-attachments/assets/1285c666-c111-4135-9a12-02e9246d665d)
