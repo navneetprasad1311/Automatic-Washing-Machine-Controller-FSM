@@ -105,7 +105,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ## 🔌 Pin Assignment
 
-![Image](https://github.com/user-attachments/assets/404152c0-f07f-4064-9530-d700d08b210f)2
+![Image](https://github.com/user-attachments/assets/404152c0-f07f-4064-9530-d700d08b210f)
 
 ---
 
