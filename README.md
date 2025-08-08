@@ -77,55 +77,35 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 ## 🧪 Simulation Demo
 
 🎥 **Demo Video**: [`washing_machine_demo.mp4`](./video/washing_machine_demo.mp4)  
-📸 **Waveform Screenshot**: [`waveform.png`](./waveform/waveform.png)
+📸 **Waveform Screenshot**: ![Image](https://github.com/user-attachments/assets/18909104-441f-47e7-a71a-f101ba81a408)
 
 ---
 
 ## 🔍 Reports
 
+### ⚙️ Schematic Desin 
+
+![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
+
 ### ⛓️ Resource Utilization (Post-Synthesis)
 
-| Resource | Usage | Description |
-|----------|-------|-------------|
-| LUTs | -- | [Auto-fill from synthesis] |
-| Flip-Flops | -- | [Auto-fill] |
-| IOBs | -- | [Auto-fill] |
+![Image](https://github.com/user-attachments/assets/7efd2422-77f2-41f0-b151-fd6acbdc69e6)
 
 ### ⏱️ Timing Summary
 
-| Parameter | Value |
-|----------|--------|
-| Clock Period | x.xx ns |
-| Max Frequency | xxx MHz |
-| Setup/Hold Violations | None |
+![Image](https://github.com/user-attachments/assets/db1bb2c1-2783-42e5-9f2f-a396b2c2b43a)
+
+---
 
 ### ⚡ Power Summary
 
-| Component | Dynamic (mW) | Static (mW) |
-|-----------|--------------|-------------|
-| Logic | -- | -- |
-| Clock | -- | -- |
-| I/O | -- | -- |
-
-> All data above can be generated using Vivado or Quartus.
+![Image](https://github.com/user-attachments/assets/fb6b26af-2ec7-4889-b664-cabc2a7413db)
 
 ---
 
 ## 🔌 Pin Assignment
 
-| Signal | Pin | Description |
-|--------|-----|-------------|
-| `clk` | e.g., A1 | Clock input |
-| `reset` | e.g., B2 | Reset button |
-| `start` | e.g., C3 | Start button |
-| `pause` | e.g., D4 | Pause button |
-| `lid` | e.g., E5 | Lid sensor |
-| `stage[2:0]` | F6–H6 | Stage display (LEDs) |
-| `done` | e.g., J7 | Completion indicator |
-| `input_valve` | e.g., K8 | Valve control (LED/relay) |
-| `output_drain` | e.g., L9 | Drain control (LED/relay) |
-
-> Pin numbers should be updated based on your FPGA board (e.g., Basys 3, DE10-Lite).
+![Image](https://github.com/user-attachments/assets/404152c0-f07f-4064-9530-d700d08b210f)2
 
 ---
 
