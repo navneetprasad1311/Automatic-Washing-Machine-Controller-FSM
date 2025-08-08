@@ -77,7 +77,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 ## 🧪 Simulation Demo
 
 🎥 **Demo Video**: [`washing_machine_demo.mp4`](./video/washing_machine_demo.mp4)  
-📸 **Waveform Screenshot**: ![Image](https://github.com/user-attachments/assets/18909104-441f-47e7-a71a-f101ba81a408)
+📸 **Waveform Screenshot**: ![Image](https://github.com/user-attachments/assets/7f16bc30-de79-435b-8dce-28846760bcf9)
 
 ---
 
