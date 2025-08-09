@@ -426,12 +426,10 @@ endmodule</pre>
 
 ### ⚙️ Schematic View 
 
-![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
 
 
 ### ⏹️ Technology View
 
-![Image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM/blob/e0e991c7655ec5c05460103c81d570863555b536/FSM%20state%20diagram/IMG-20250806-WA0007.jpg)
 
 ---
 
