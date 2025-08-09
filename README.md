@@ -312,6 +312,11 @@ endmodule </pre>
 
 ![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
 
+### ⚙️ Technology Design
+
+![Image](![IMG-20250806-WA0007](https://github.com/user-attachments/assets/ad8e3e1b-efa8-462c-8804-47dcb25c4941)
+)
+
 ### ⛓️ Resource Utilization (Post-Implementation)
 
 ![Image](https://github.com/user-attachments/assets/7efd2422-77f2-41f0-b151-fd6acbdc69e6)
