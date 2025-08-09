@@ -22,7 +22,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ---
 
-## 🛠️ Specifications
+## 🛠️ Tools And Hardware
 
 - Software: Vivado ML Edition (Standard) 2024.2
 - Hardware: ZedBoard Zynq-7000 ARM / FPGA SoC Development Board
