@@ -3,9 +3,13 @@
 ## 📌 Project Overview
 This project implements a **Finite State Machine (FSM)** based controller for a **semi-automatic washing machine** using Verilog HDL. It simulates the sequential stages of the wash cycle and handles input signals like **start**, **pause**, **reset**, and **lid status**, with control outputs for **input valve** and **drain valve**.
 
-![Image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM-/blob/592fc4520df82c05d8770f3bcbafaf5553a9cdbc/Images/Zedboard.jpeg))
+![Image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM-/blob/592fc4520df82c05d8770f3bcbafaf5553a9cdbc/Images/Zedboard.jpeg)
 
 ---
+
+## ✏️ Problem Statement 
+
+
 
 ## ⚙️ Features
 
@@ -70,7 +74,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 ## 🔁 FSM Transition Logic
 
 - If `pause` is pressed, the system enters `IDLE` and stores the previous state.
-- If `lid` is open during **FILL**, system waits until lid is closed.
+- `lid` is open during **FILL**, system waits until lid is closed.
 - In **RINSE**, valve toggles periodically between drain and fill.
 - After **SPIN**, system goes to **STOP** and then `done` is asserted.
 
@@ -378,31 +382,45 @@ module AWMC_tb();
 
 endmodule</pre>
 
+---
 
-
-
-## 🧪 Simulation Demo
-
-🎥 [Demo Video](https://github.com/Akashselvam2302/images/raw/refs/heads/main/Demo.mp4) <- Click here to download and watch our demo video!
+## 🧪 Simulation 
 
 📸 **Waveform Screenshot**: ![Image](https://github.com/user-attachments/assets/7f16bc30-de79-435b-8dce-28846760bcf9)
 
 ---
 
-## 🔍 Reports
+## 🔍 Overview
 
-### ⚙️ Schematic Design 
+
+### 📂 File Structure
+
+![Image](https://github.com/user-attachments/assets/1285c666-c111-4135-9a12-02e9246d665d)
+
+---
+
+### ⚙️ Schematic View 
 
 ![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
 
-### ⏹️ Technology Design
+
+### ⏹️ Technology View
 
 ![Image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM/blob/e0e991c7655ec5c05460103c81d570863555b536/FSM%20state%20diagram/IMG-20250806-WA0007.jpg)
 
+---
+
+### 🔌 Pin Assignment
+
+![Image](https://github.com/user-attachments/assets/404152c0-f07f-4064-9530-d700d08b210f)
+
+---
 
 ### ⛓️ Resource Utilization (Post-Implementation)
 
 ![Image](https://github.com/user-attachments/assets/7efd2422-77f2-41f0-b151-fd6acbdc69e6)
+
+---
 
 ### ⏱️ Timing Summary
 
@@ -416,12 +434,17 @@ endmodule</pre>
 
 ---
 
-## 🔌 Pin Assignment
+## 💫 Implementation
 
-![Image](https://github.com/user-attachments/assets/404152c0-f07f-4064-9530-d700d08b210f)
+[FPGA Implementation Video]()
 
 ---
 
-## 📂 File Structure
+## 👥 Contributors
 
-![Image](https://github.com/user-attachments/assets/1285c666-c111-4135-9a12-02e9246d665d)
+[Navneet Prasad]()
+[Akash P]( )
+
+## Notes
+
+Working on this FSM project was a great learning experience. We learned how to break a problem into clear states, plan transitions, and implement them effectively. Along the way, we improved our debugging skills, understood the value of systematic design, and gained confidence in applying FSM concepts to real-world problems. Overall, it was both challenging and rewarding.
