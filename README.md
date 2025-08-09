@@ -314,8 +314,8 @@ endmodule </pre>
 
 ### ⚙️ Technology Design
 
-![Image](![IMG-20250806-WA0007](https://github.com/user-attachments/assets/ad8e3e1b-efa8-462c-8804-47dcb25c4941)
-)
+![Image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM/blob/e0e991c7655ec5c05460103c81d570863555b536/FSM%20state%20diagram/IMG-20250806-WA0007.jpg)
+
 
 ### ⛓️ Resource Utilization (Post-Implementation)
 
