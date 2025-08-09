@@ -74,8 +74,8 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ---
 
-design.v
-<pre> ```design.v module AWMC(input clk,  
+## design.v
+<pre> module AWMC(input clk,  
                   reset,
                   start,
                   pause,
@@ -290,7 +290,7 @@ design.v
             end 
         end
     end
-endmodule``` </pre>
+endmodule </pre>
 
 
 ## 🧪 Simulation Demo
