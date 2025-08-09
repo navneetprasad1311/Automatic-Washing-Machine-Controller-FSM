@@ -74,7 +74,11 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ---
 
-## design.v
+## 🖼️ FSM State Diagram 
+
+![image](https://github.com/navneetprasad1311/Automatic-Washing-Machine-Controller-FSM/blob/28f2a3212b95e9db59996bda05cc6a0074f49d10/FSM%20state%20diagram/Screenshot%202025-08-09%20104624.png)
+
+## 🎨 design.v
 <pre> module AWMC(input clk,  
                   reset,
                   start,
@@ -292,6 +296,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
     end
 endmodule </pre>
 
+---
 
 ## 🧪 Simulation Demo
 
