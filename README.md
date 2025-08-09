@@ -9,7 +9,33 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ## ✏️ Problem Statement 
 
+<pre>Design an FSM to simulate the working of a semi-automatic washing machine with the following operations:
+        Fill → Wash → Rinse → Spin → Stop
 
+        Each stage takes a fixed number of cycles
+
+        Machine should respond to start, pause, and reset signals.
+
+        Inputs:
+            clk, reset, start, pause
+
+        Outputs:
+            stage[2:0] → Indicates current stage
+            done → High when complete
+            
+        States:
+            IDLE (111)
+            FILL (000)
+            WASH (001)
+            RINSE (010)
+            SPIN (011)
+            STOP (100)
+  </pre>
+
+  Additionally we included lid safety mechanism (`lid`) where the machine pauses automatically if the lid is opened during certain stages (e.g., Wash, Rinse, Spin) and valves (`input_valve`  `output_drain`) that open and close for a fixed number of clock cycles in those stages.
+
+
+---
 
 ## ⚙️ Features
 
