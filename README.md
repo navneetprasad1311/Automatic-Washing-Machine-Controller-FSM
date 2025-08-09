@@ -32,7 +32,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
             STOP (100)
   </pre>
 
-  Additionally we included lid safety mechanism (`lid`) where the machine pauses automatically if the lid is opened during certain stages (e.g., Wash, Rinse, Spin) and valves (`input_valve`  `output_drain`) that open and close for a fixed number of clock cycles in those stages.
+  Additionally we included lid safety mechanism (`lid`) where the machine pauses automatically if the lid is opened during certain stages (e.g., Wash, Rinse, Spin) and valves (`input_valve`  `output_drain`) that open or close for a fixed number of clock cycles in those stages to control water flow.
 
 
 ---
