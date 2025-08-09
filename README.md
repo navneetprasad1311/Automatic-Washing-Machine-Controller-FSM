@@ -88,7 +88,7 @@ This project implements a **Finite State Machine (FSM)** based controller for a 
 
 ![Image](https://github.com/user-attachments/assets/2b4de1b8-0406-45b2-9ba3-5fb12a0b65f0)
 
-### ⛓️ Resource Utilization (Post-Synthesis)
+### ⛓️ Resource Utilization (Post-Implementation)
 
 ![Image](https://github.com/user-attachments/assets/7efd2422-77f2-41f0-b151-fd6acbdc69e6)
 
