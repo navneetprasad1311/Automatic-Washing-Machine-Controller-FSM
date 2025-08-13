@@ -1,11 +1,13 @@
-`include "design.v"
+`timescale 1ps/1ps
 
 module AWMC_tb();
-    reg clk, reset, start, pause;
+    reg clk, reset, start, pause, lid;
     wire [2:0] stage;
     wire done;
+    wire input_valve;
+    wire output_drain;
 
-    AWMC uut(.clk(clk),.reset(reset),.start(start),.pause(pause),.stage(stage),.done(done));
+    AWMC uut(.clk(clk),.reset(reset),.start(start),.pause(pause),.stage(stage),.done(done),.lid(lid),.input_valve(input_valve),.output_drain(output_drain));
 
     initial begin
         reset = 1'b0;
@@ -16,45 +18,58 @@ module AWMC_tb();
         clk = 1'b0;
 
         forever #5 clk = ~clk;
+      
     end
 
     initial begin
         start = 1'b0;
         pause = 1'b0;
 
-        $dumpfile("tb.vcd");
-        $dumpvars(0,AWMC_tb);
-
         #10
         start = 1'b1;
+        lid = 1'b1;
         #20
         start = 1'b0;
         #100
         pause = 1'b1;
+        lid = 1'b0;
         #105
         pause = 1'b0;
         #110
         start = 1'b1;
         #120 
         start = 1'b0;
-        #135
-        reset = 1'b1;
         #150
         reset = 1'b0;
         #155
         start = 1'b1;
+        lid = 1'b1;
         #160
         start = 1'b0;
         #165
-        pause = 1'b1;
+        lid = 1'b1;
+        #167
+        lid = 1'b0;
         #170
         pause = 1'b0;
         #200
         reset = 1'b1;
+        start = 1'b1;
+        lid = 1'b1;
         #205
         reset = 1'b0;  
+        #240
+        start = 1'b0;
+        lid = 1'b0;
+        #250
+        pause = 1'b1;
+        #310
+        pause = 1'b0;
+        lid = 1'b1;
+        #360
+        lid = 1'b0;
 
-        #300 $finish;
+        #400 $finish;
 
     end
 
